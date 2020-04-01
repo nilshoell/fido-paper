@@ -25,5 +25,8 @@ Sections/*.aux
 *.mtc1
 *.out
 *.synctex.gz
+*.synctex
+*.fls
+main.fdb_latexmk
 main.run.xml
 *.lol
