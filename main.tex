@@ -2,7 +2,7 @@
 %	PAPER SETUP
 %----------------------------------------------------------------------------------------
 
-\newcommand*{\mytitle}{Beyond Passwords?\\Authentication with FIDO2 and WebAuthn} % Paper Title
+\newcommand*{\mytitle}{Beyond Passwords? Authentication with FIDO2 and WebAuthn} % Paper Title
 \newcommand*{\myauthor}{Nils Siegle} % Paper Author
 \newcommand*{\mydate}{May 2020} % Publication Date
 \newcommand*{\myorg}{Applied Concepts of Web Engineering} % Organization, Journal, Subject this paper was published in
@@ -80,6 +80,11 @@
 \definecolor{lstKey}{RGB}{0, 51, 204}
 \definecolor{lstStr}{RGB}{162, 43, 43}
 
+% ------- ACRONYMS -------
+\usepackage[nohyperlinks]{acronym} % Prints only used acronyms in overview
+% \usepackage[nohyperlinks, printonlyused]{acronym} % Prints only used acronyms in overview
+
+
 %------------------------------------------------
 %	CODE LISTINGS
 %------------------------------------------------
@@ -118,37 +123,6 @@
   \colorbox{lstbg}{\textcolor{lstStr}{\textbf{\texttt{#1}}}}%
 }
 
-
-%------------------------------------------------
-%	ACRONYMS
-%------------------------------------------------
-\usepackage[nohyperlinks, printonlyused]{acronym} % Prints only used acronyms in overview
-% FIDO-Standards/Protocols
-\newacro{fido}[FIDO]{Fast IDentity Online}
-\newacro{ctap}[CTAP]{Client to Authenticator Protocol}
-\newacro{u2f}[U2F]{Universal Second Factor}
-\newacro{uaf}[UAF]{Universal Authentication Framework}
-
-% General Protocols
-\newacro{http}[HTTP]{Hypertext Transport Protocol}
-\newacro{https}[HTTPS]{Hypertext Transport Protocol Secure}
-
-% Other Abbreviations
-\newacro{2fa}[2FA]{Two-Factor Authentication}
-\newacro{mfa}[MFA]{Multi-Factor Authentication}
-\newacro{totp}[TOTP]{Time-based One-time Password}
-\newacro{hotp}[HOTP]{HMAC-based One-time Password}
-\newacro{authn}[authn]{Authentication}
-\newacro{auzhz}[authz]{Authorization}
-% \newacro{id}[ABRV]{Abbreviation}
-
-% \acro{}[]{}
-% Use 
-% - \ac{id} for standard behavior
-% - \acs{id} for acronym
-% - \acl{id} for long version
-% - \acp{id} for plural (with 's' at the end)
-
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
@@ -181,6 +155,45 @@
 
 % Print the title
 \maketitle
+
+\newpage
+\onecolumn
+%------------------------------------------------
+%	ToC
+%------------------------------------------------
+\tableofcontents
+\newpage
+
+%------------------------------------------------
+%	ACRONYMS
+%------------------------------------------------
+
+\section*{Acronyms}
+\begin{acronym}[AAAAAA]
+  \acro{fido}[FIDO]{Fast IDentity Online}
+  \acro{ctap}[CTAP]{Client to Authenticator Protocol}
+  \acro{u2f}[U2F]{Universal Second Factor}
+  \acro{uaf}[UAF]{Universal Authentication Framework}
+  \acro{http}[HTTP]{Hypertext Transport Protocol}
+  \acro{https}[HTTPS]{Hypertext Transport Protocol Secure}
+  \acro{2fa}[2FA]{Two-Factor Authentication}
+  \acro{mfa}[MFA]{Multi-Factor Authentication}
+  \acro{totp}[TOTP]{Time-based One-time Password}
+  \acro{hotp}[HOTP]{HMAC-based One-time Password}
+  \acro{authn}[authn]{Authentication}
+  \acro{auzhz}[authz]{Authorization}
+\end{acronym}
+
+% \newacro{id}[ABRV]{Abbreviation}
+% \acro{}[]{}
+% Use 
+% - \ac{id} for standard behavior
+% - \acs{id} for acronym
+% - \acl{id} for long version
+% - \acp{id} for plural (with 's' at the end)
+
+\newpage
+\twocolumn
 
 %----------------------------------------------------------------------------------------
 %	ARTICLE CONTENTS
