@@ -2,7 +2,7 @@
 %	PAPER SETUP
 %----------------------------------------------------------------------------------------
 
-\newcommand*{\mytitle}{Authentication with FIDO2} % Paper Title
+\newcommand*{\mytitle}{Beyond Passwords?\\Authentication with FIDO2 and WebAuthn} % Paper Title
 \newcommand*{\myauthor}{Nils Siegle} % Paper Author
 \newcommand*{\mydate}{May 2020} % Publication Date
 \newcommand*{\myorg}{Applied Concepts of Web Engineering} % Organization, Journal, Subject this paper was published in
@@ -138,6 +138,8 @@
 \newacro{mfa}[MFA]{Multi-Factor Authentication}
 \newacro{totp}[TOTP]{Time-based One-time Password}
 \newacro{hotp}[HOTP]{HMAC-based One-time Password}
+\newacro{authn}[authn]{Authentication}
+\newacro{auzhz}[authz]{Authorization}
 % \newacro{id}[ABRV]{Abbreviation}
 
 % \acro{}[]{}
@@ -187,20 +189,20 @@
 % Section 1 - Introduction
 \input{Sections/section1.tex}
 
-%------------------------------------------------
-
-% Section 2 - Methods
+% Section 2 - Foundations
 \input{Sections/section2.tex}
 
-%------------------------------------------------
-
-% Section 3 - Results
+% Section 3 - Methods
 \input{Sections/section3.tex}
 
-%------------------------------------------------
-
-% Section 4 - Discussion
+% Section 4 - Results
 \input{Sections/section4.tex}
+
+% Section 5 - Discussion
+\input{Sections/section5.tex}
+
+% Section 6 - Conclusion
+\input{Sections/section6.tex}
 
 % Single column layout for the rest of the paper
 \onecolumn
@@ -213,7 +215,7 @@
 %------------------------------------------------
 
 % Section 5 - Appendix
-\input{Sections/section5.tex}
+\input{Sections/appendix.tex}
 
 %----------------------------------------------------------------------------------------
 
