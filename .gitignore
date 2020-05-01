@@ -1,6 +1,6 @@
 .vs/
 .vscode/
-*.pdf
+main.pdf
 *.aux
 Sections/*.aux
 *.glo
