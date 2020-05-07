@@ -67,7 +67,7 @@
 }
 
 % ------- BIBTEX -------
-\usepackage[backend=bibtex,style=numeric,citestyle=numeric,natbib=true]{biblatex}
+\usepackage[backend=bibtex,style=alphabetic,citestyle=numeric,natbib=true]{biblatex}
 \addbibresource{sources.bib}
 
 \usepackage[autostyle=true]{csquotes}
@@ -81,8 +81,8 @@
 \definecolor{lstStr}{RGB}{162, 43, 43}
 
 % ------- ACRONYMS -------
-\usepackage[nohyperlinks]{acronym} % Prints only used acronyms in overview
-% \usepackage[nohyperlinks, printonlyused]{acronym} % Prints only used acronyms in overview
+% \usepackage[nohyperlinks]{acronym} % Prints only used acronyms in overview
+\usepackage[nohyperlinks, printonlyused]{acronym} % Prints only used acronyms in overview
 
 
 %------------------------------------------------
@@ -175,9 +175,11 @@
   \acro{authz}[authz]{Authorization}
   \acro{ctap}[CTAP]{Client to Authenticator Protocol}
   \acro{fido}[FIDO]{Fast IDentity Online}
+  \acro{fido2}[FIDO2]{Fast IDentity Online 2}
   \acro{hotp}[HOTP]{HMAC-based One-time Password}
   \acro{http}[HTTP]{Hypertext Transport Protocol}
   \acro{https}[HTTPS]{Hypertext Transport Protocol Secure}
+  \acro{it}[IT]{Information Technology}
   \acro{mfa}[MFA]{Multi-Factor Authentication}
   \acro{totp}[TOTP]{Time-based One-time Password}
   \acro{u2f}[U2F]{Universal Second Factor}
