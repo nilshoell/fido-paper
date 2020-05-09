@@ -19,6 +19,8 @@
 % ------- FONTS -------
 \usepackage[sc]{mathpazo} % Use the Palatino font
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[utf8]{inputenc}
+
 \linespread{1.05} % Line spacing - Palatino needs more space between lines
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
 
@@ -67,7 +69,7 @@
 }
 
 % ------- BIBTEX -------
-\usepackage[backend=bibtex,style=alphabetic,citestyle=numeric,natbib=true]{biblatex}
+\usepackage[backend=bibtex,style=numeric,citestyle=numeric,natbib=true]{biblatex}
 \addbibresource{sources.bib}
 
 \usepackage[autostyle=true]{csquotes}
@@ -181,6 +183,7 @@
   \acro{https}[HTTPS]{Hypertext Transport Protocol Secure}
   \acro{it}[IT]{Information Technology}
   \acro{mfa}[MFA]{Multi-Factor Authentication}
+  \acro{nist}[NIST]{National Institute of Standards and Technology}
   \acro{totp}[TOTP]{Time-based One-time Password}
   \acro{u2f}[U2F]{Universal Second Factor}
   \acro{uaf}[UAF]{Universal Authentication Framework}
