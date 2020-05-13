@@ -19,6 +19,8 @@
 % ------- FONTS -------
 \usepackage[sc]{mathpazo} % Use the Palatino font
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[utf8]{inputenc}
+
 \linespread{1.05} % Line spacing - Palatino needs more space between lines
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
 
@@ -81,8 +83,8 @@
 \definecolor{lstStr}{RGB}{162, 43, 43}
 
 % ------- ACRONYMS -------
-\usepackage[nohyperlinks]{acronym} % Prints only used acronyms in overview
-% \usepackage[nohyperlinks, printonlyused]{acronym} % Prints only used acronyms in overview
+% \usepackage[nohyperlinks]{acronym} % Prints only used acronyms in overview
+\usepackage[nohyperlinks, printonlyused]{acronym} % Prints only used acronyms in overview
 
 
 %------------------------------------------------
@@ -175,10 +177,13 @@
   \acro{authz}[authz]{Authorization}
   \acro{ctap}[CTAP]{Client to Authenticator Protocol}
   \acro{fido}[FIDO]{Fast IDentity Online}
+  \acro{fido2}[FIDO2]{Fast IDentity Online 2}
   \acro{hotp}[HOTP]{HMAC-based One-time Password}
   \acro{http}[HTTP]{Hypertext Transport Protocol}
   \acro{https}[HTTPS]{Hypertext Transport Protocol Secure}
+  \acro{it}[IT]{Information Technology}
   \acro{mfa}[MFA]{Multi-Factor Authentication}
+  \acro{nist}[NIST]{National Institute of Standards and Technology}
   \acro{totp}[TOTP]{Time-based One-time Password}
   \acro{u2f}[U2F]{Universal Second Factor}
   \acro{uaf}[UAF]{Universal Authentication Framework}

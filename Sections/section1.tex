@@ -9,9 +9,16 @@
 \section{Introduction}
 \label{sec:intro}
 
-\lettrine[nindent=0em,lines=3]{}
+\lettrine[nindent=0em,lines=3]{P}asswords are everywhere in the daily online life of almost every person. No matter if it is a new social media platform, an e-commerce website or online-banking - dozens of services require internet users to authenticate using a, preferably strong and unique, password \cite{nist}.\\
+As many of these accounts contain very sensitive data, many users are afraid of their credentials becoming exposed during one of the many data breaches of the recent years \cite{statista_dossier2018}. Monitoring services like Have I Been Pwned\footnote{https://haveibeenpwned.com} or the Hasso-Plattner-Institut Identity Leak Checker\footnote{https://sec.hpi.de/ilc/} try to gather information about those breaches, and to inform affected internet users. The former service currently reports almost ten billion breached accounts from 440 different websites, the latter over ten billion from oer 1,000 leaks \cite{hibp,hpi}.\\
+A known problem of those breaches is that many people reuse their mostly weak passwords \cite{bailey2014} - around 70\% of the credentials in a new breach published in\cite{hibp} are already in the system. Some websites are trying to get around this problem by enforcing arbitrary password requirements like length, use of special characters or banning known weak passwords. Oftentimes those measures do not increase password security, but do confuse the users trying to generate valid credentials for a new website \cite{hunt2017}; therefore, the American \ac{nist} does no longer recommend using such rules \cite{nist}.\\
+Although password managers provide an effective way of generating and storing long, random and therefore unique passwords, they introduce an additional step in the authentication flow \cite{lyastani2018}.\\
+\\
+Is a secure and easy-to-use authentication possible without passwords or even storing credentials?\\
+The FIDO Alliance, a project supported by hundreds of tech giants like Amazon, Google, Facebook, Apple, American Express, Paypal and many others\footnote{https://fidoalliance.org/members/} claims to have a solution: The \ac{fido2} authentication framework. Logging in would no longer require a password\footnote{\ac{fido2} can also be used as an additional factor, see chapter \ref{sec:results}.}, but a hardware token (\emph{authenticator}) like a thumb drive. Because the technology utilizes public-key-cryptography, the actual secret would never leave the authenticator, drastically improving security.\\
+This paper aims to summarize the state of the art of research about \ac{fido2} to answer the following question:
 
-% - Passwords are the prevalent authentication mechanism
+% - Passwords are the prevalent authentication mechanism (85%)
 % - Authentication is base for establishing the digital identity \cite{nist}
 % - Users have more and more accounts \cite{whitty2015}
 % - Despite better knowledge, users reuse their (already weak) passwords \cite{bailey2014,hunt2018c,whitty2015} -> Up to 70\% of passwords in a breach where already known

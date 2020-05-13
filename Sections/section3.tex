@@ -5,15 +5,21 @@
 \section{Foundations}
 \label{sec:foundations}
 
+The following chapter explains some basic concepts of web authentication and digital identities.
+
 % ---- Authn and Authz ----
 \subsection{Authentication and Authorisation}
 \label{subsec:authn_authz}
 
+Authentication and authorisation, in technical environments often referred to as \ac{authn} and \ac{authz} are concepts present in virtually every protected \ac{it} ressource.\\
+The formers describes the process of identifying a user by verifying their digital identity, hence checking their \emph{authenticity}. Oftentimes only certain users are \emph{authorized} to access a protected ressource (e.g. specific parts of a website, sensitive data etc.). Therefore, an authorization has to take place both to ensure that the correct information is distributed to each user, and that no one without permission is able to manipulate data.
 
 % ---- Password-Based ----
 \subsection{Password-Based Authentication}
 \label{subsec:pw_based_authn}
 
+The most common and widespread type of web authentication is the so-called password-based authentication. In this case a user has to provide a \emph{username} (oftentimes an e-mail address, as these are globally unique) and a \emph{password} or \emph{passphrase}, a secret string only known to the user.\\
+Only the correct combination of username and password grants access to the protected resource.
 
 % ---- MFA ----
 \subsection{Multi-Factor Authentication}
