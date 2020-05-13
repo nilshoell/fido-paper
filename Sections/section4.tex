@@ -1,36 +1,44 @@
 % ---------- SECTION IV - FIDO2 & WebAuthn ----------
 
-\section{FIDO2 \& WebAuthn}
+\section{Results}
 \label{sec:results}
 
 % In this chapter
-
-% ---- FIDO Alliance ----
-\subsection{The FIDO Alliance}
-\label{subsec:fido_alliance}
-
-% - Legacy: FIDO UAF/U2F
-% - FIDO2 optimized for cross-plattform and browser support
-
-
-% ---- WebAuthn ----
-\subsection{WebAuthn}
-\label{subsec:webauthn}
-
-% - FIDO Alliance contributions, but specified by w3c
-% https://developer.mozilla.org/de/docs/Web/API/Web_Authentication_API
-
-
-% ---- Subsection Authenticators ----
-\subsection{Authenticators}
-\label{subsec:authenticators}
-
+% J. Bonneau, C. Herley, P. C. v. Oorschot, and F. Stajano, “The quest to replace passwords"
 
 % ---- Subsection Usability ----
 \subsection{Usability}
 \label{subsec:usability}
 
+% - Users accept 1FA security tokens
+% - Hard/Impossible to use with public computers (no way to insert authenticator)
+% - Impossible to delegate access to trusted persons
+% - Loosing/Destroying Key -> no access, complicated recovery
+%  - Register 2 keys (see: Google Advanced Protection)
+% - Many studies for U2F: 25, 26, 39, 40, 41
+%  - J. Lang, A. Czeskis, D. Balfanz, M. Schilder, and S. Srinivas, “Security keys: Practical cryptographic second factors for the modern web”
+%  - S. Das, G. Russo, A. C. Dingman, J. Dev, O. Kenny, and L. J. Camp,“A qualitative study on usability and acceptability of yubico security key”
+%  - S. Das, A. Dingman, and L. J. Camp, “Why johnny doesn’t use two factor: A two-phase usability study of the ﬁdo u2f security key”
+%  - J. Reynolds, T. Smith, K. Reese, L. Dickinson, S. Ruoti, and K. Seamons, “A tale of two studies: The best and worst of yubikey usability”
+%  - 
+% - Clear setup instructions needed
+% - Form factor especially relevant for older generation
 
-% ---- Subsection X ----
-% \subsection{X}
-% \label{subsec:X}
+
+% ---- Subsection Security ----
+\subsection{Security}
+\label{subsec:security}
+
+% - Public-Key-Cryptography
+% - No Phishing, Replay or data breaches possible
+% - Keys are Read-Only
+% - Require physical presence or even PIN/Biometrics
+% - NO resilience to theft
+
+
+% ---- Subsection Other ----
+\subsection{Challenges}
+\label{subsec:challenges}
+
+% - Users want to revoke keys -> loss of key associated with loss of account
+% - Completely different approach, breaking changes -> Users cannot evaluate the security of this concepts
