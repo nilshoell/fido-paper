@@ -40,9 +40,16 @@ Only the correct combination of username and password grants access to the prote
 \subsection{FIDO2 Overview}
 \label{subsec:fido2_webauthn}
 
-% - WebAuthn + CTAP2
-%  - WebAuthn (W3C-Standard) is a Browser-API for FIDO2-Authentication
-%  - CTAP2 establishes communication between WebAuthn and Authenticator
-% - Authenticators
-%  - Roaming: USB-Keys, Android Device (using NFC), Bluetooth
-%  - Integrated: TPM, Windows Hello, TouchID
+\ac{fido2} aims to provide a strong authentication factor (either as single factor for passwordless login or in a \ac{mfa} setting) using hardware keys, so called \emph{authenticators}. Those can be on the device itself (for example using \emph{Windows Hello}, Apples \emph{TouchID} or a \ac{tpm} chip), and therefore be \emph{internal} authenticators. The alternative are external or \emph{roaming} authenticators, often realised as USB keys or \ac{nfc} cards.\\
+The party providing the protected ressource (e.g. a website or other web application) is referred to as \emph{relying party}.\\
+The \ac{fido2} Framework consists mainly of two components: The \emph{WebAuthn} web \ac{api}, standardized by the \ac{w3c}, is the interface between the browser or \ac{os} and the authentication servers of the relying party\cite{webauthn_standard}. WebAuthn is currently supported by the Windows 10 and Android \acp{os} as well as Google Chrome, Mozilla Firefox, Microsoft Edge and Apple Safari web browsers.\cite{fido2_webauthn}\\
+The second part is the \ac{ctap2} protocol that is responsible for connecting roaming authenticators to the clients device (e.g. a smartphone, laptop or personal computer).\cite{fido2_overview,fido2_ctap}\\
+\\
+As seen in figure \ref{fig:fido2_webauth_ctap_flow}.
+
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[width=1.8\columnwidth]{Figures/fido2_webauth_ctap_flow.png}
+    \caption[FIDO2 Authentication Flow]{FIDO2 WebAuthn \& CTAP2 Authentication Flow}
+    \label{fig:fido2_webauth_ctap_flow}
+\end{figure*}
