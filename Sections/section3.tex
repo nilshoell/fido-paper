@@ -58,7 +58,9 @@ However, \ac{mfa} is not a reliable protection against phishing attacks \cite{ly
 \subsection{FIDO2 Overview}
 \label{subsec:fido2_webauthn}
 
-\ac{fido2} aims to provide a strong authentication factor (either as single factor for passwordless login or in a \ac{mfa} setting) using hardware keys, so called \emph{authenticators}. Those can be on the device itself (for example using \emph{Windows Hello}, Apples \emph{TouchID} or a \ac{tpm} chip), and therefore be \emph{internal} authenticators. The alternative are external or \emph{roaming} authenticators, often realised as USB keys or \ac{nfc} cards.\\
+The \ac{fido} Alliance was founded in 2012 by a consortium of software and hardware companies with the goal to create an open, universal authentication framework. In December of 2014 the specifications for \acl{uaf}, a protocol for passwordless authentication, and \acl{u2f}, a protocol designed for second factors, were published by the alliance. The experiences from those protocols were later condensed into the \ac{fido2} framework, launched only recently in April of 2018 \cite{fido_history}.\\
+\\
+\ac{fido2} aims to provide a strong authentication factor (either as single factor for passwordless login or in a \ac{mfa} setting) using hardware keys, so called \emph{authenticators}. Those can be on the device itself (for example using \emph{Windows Hello}, Apples \emph{TouchID} or a \ac{tpm} chip), and therefore \emph{internal} authenticators. The alternative are external or \emph{roaming} authenticators, often realised as USB keys or \ac{nfc} cards.\\
 The party providing the protected ressource (e.g. a website or other web application) is referred to as \emph{relying party}.\\
 The \ac{fido2} Framework consists mainly of two components: The \emph{WebAuthn} web \ac{api}, standardized by the \ac{w3c}, is the interface between the browser or \ac{os} and the authentication servers of the relying party \cite{webauthn_standard}. WebAuthn is currently supported by the Windows 10 and Android \acp{os} as well as by the Google Chrome, Mozilla Firefox, Microsoft Edge and Apple Safari web browsers \cite{fido2_webauthn}.\\
 The second part is the \ac{ctap2} protocol that is responsible for connecting roaming authenticators to the clients device (e.g. a smartphone, laptop or personal computer) \cite{fido2_overview,fido2_ctap}.\\
@@ -70,4 +72,5 @@ The second part is the \ac{ctap2} protocol that is responsible for connecting ro
     \label{fig:fido2_webauth_ctap_flow}
 \end{figure*}
 
-\noindent As seen in figure \ref{fig:fido2_webauth_ctap_flow}, the \ac{rp} will never know what kind of authenticator was used - as long as it can communicate over WebAuthn (or indirectly over \ac{ctap}).
+\noindent As seen in figure \ref{fig:fido2_webauth_ctap_flow}, the \ac{rp} will never know what kind of authenticator was used - as long as it can communicate over WebAuthn (or indirectly over \ac{ctap}).\\
+The WebAuthn \ac{api} is used for two major operations: Either to register a new authenticator with an application, creating new public key credentials, or to login to one of these applications. For logging in, the \ac{rp} sends an \emph{authentication assertion}. The authenticator has to verify the presence and consent of the user, usually using a button or fingerprint sensor on the security key, before the assertion is signed with the correct private key and send back to the \ac{rp} \cite{webauthn_standard,mdn_webauthn}.
