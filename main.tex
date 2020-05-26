@@ -5,6 +5,8 @@
 \newcommand*{\mytitle}{Beyond Passwords? Authentication with FIDO2 and WebAuthn} % Paper Title
 \newcommand*{\myauthor}{Nils Siegle} % Paper Author
 \newcommand*{\mydate}{May 2020} % Publication Date
+\newcommand*{\myuni}{\href{https://www.uni-due.de}{University Duisburg-Essen}} % University
+\newcommand*{\myfac}{\href{https://www.wiwi.uni-due.de}{Faculty of Business Administration and Economics}} % Faculty
 \newcommand*{\myorg}{ACWE} % Organization, Journal, Subject this paper was published in
 
 
@@ -129,14 +131,20 @@
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
 
-\setlength{\droptitle}{-4\baselineskip} % Move the title up
+\setlength{\droptitle}{-2\baselineskip} % Move the title up
 
-\pretitle{\begin{center}\Huge\bfseries} % Article title formatting
-\posttitle{\end{center}} % Article title closing formatting
+\pretitle{%
+  \begin{center}
+    \Large\myuni\\
+    \large\myfac\\
+    \vspace{0.5cm}
+    \Huge\bfseries
+    } % Article title formatting
+\posttitle{\vspace{1.5cm}\end{center}} % Article title closing formatting
 \title{\mytitle} % Article title
 \author{%
-  \textsc{Nils Siegle} \\[1ex] % First author's name
-  \normalsize 3087271 \\ % First author's institution
+  \textsc{Nils Siegle} \\[1ex] % Name
+  \normalsize 3087271 \\ % MatriculationNo
   \normalsize \href{mailto:nils.siegle@stud.uni-due.de}{nils.siegle@stud.uni-due.de} % First author's email address
 }
 \date{\today} % Leave empty to omit a date
