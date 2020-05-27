@@ -3,13 +3,44 @@
 \section{Discussion}
 \label{sec:discussion}
 
-% - Problem of recovery after loss
-% - Good communication of (security) benefits and instructions needed
+As in the previous chapter, the evaluation of the results is also split into the two dimensions usability and security.
+
+% ---- Subsection Usability ----
+\subsection{Usability}
+
+The usability, or more broadly speaking the \emph{acceptability} of a product or service, consists of several components. According to Nielsen (1993), acceptability is split into social and practical acceptability. Due to the lack of literature and practical relevance, only the practical usability of \ac{fido2} is considered in this paper.\\
+Practical acceptability is now split into \emph{Cost}, \emph{Compatibility}, \emph{Reliability} and \emph{Usefulness} \cite[25 \psq]{nielsen1993}:
+
+\begin{description}
+    \item[Cost] In the study by \cite{lyastani2020}, around a third of the participants stated that they would rather not use \ac{fido2} due to the cost of external authenticators. This is partly countered by the possible use of internal authenticators (such as a Windows 10 PC or an Android Smartphone), but if a roaming authenticator is required for mobility, prices range between 20€ and 45€ per key \cite{yubikey_5_nfc} - which means at least 40€ if a backup key is registered.
+    \item[Compatibility] As WebAuthn is a browser protocol that is currently implemented in almost every major browser, compatibility should not be an issue. Additionally, it is currently supported in Windows 10 and Android, with full support for Apples iOS on its way \cite{nichols2020}. As \ac{ctap} and WebAuthn are open standards, compatibility should increase in the near future.
+    \item[Reliability] The reliability of a \ac{fido2} authentication is hard to estimate, as many components are required to work. For WebAuthn, the standardisation by the \ac{w3c} should be enough to conclude that it is robust. An unknown factor are hardware keys, as their reliability depends on the manufacturer.
+\end{description}
+
+The usability, according to \cite[25 \psq]{nielsen1993} a sub-component of \emph{Usefulness}, is again divided into five metrics, that are evaluated in the following paragraph:
+
+\begin{description}
+    \item[Easy to learn] The basic usage of the FIDO2 framework is easy to learn, although better and more user-friendly documentation is required as most people are only used to passwords \cite{lyastani2020,hunt2018b,das2018}.
+    \item[Efficient to use] Using a security key is very fast once the users have learned it \cite{lang2017}.
+    \item[Easy to remember] As the process of loggin in itself is quite simple and, contrary to passwords, identical for each application, it should be easy to reproduce. Nevertheless, there is currently no long-term research to further support this evaluation.
+    \item[Few errors] Once setup correctly, there is very little room for errors. However, this also depends on the authenticator used, as for example biometrics could confuse a user and therefore introduce errors \cite{lyastani2020}.
+    \item[Subjectively pleasing] Participants in recent studies have found security keys enjoyable to use in \ac{1fa} scenarios \citep{lyastani2020}, but were less convinced in \ac{2fa} settings \cite{das2018}.
+\end{description}
+
+There is one major challenge that does not really fit in one of the above categories, but was identified by all studies conducted on the use of hardware security keys, no matter if \ac{fido2} and \ac{1fa} or with \ac{u2f}: If the key gets lost, stolen or destroyed, there is currently no easy way to recover access or revoke the key. If the user has no other way of authentication (like a second registered key as proposed by \cite{gomi2019} or a backup password), access for all linked account has to be recovered individually - probably using a multitude of different approaches chosen by each provider. But even with a backup authentication method, the lost key has to be revoked and a new one registered for each service.\\
+
+% ---- Subsection Security ----
+\subsection{Security}
 
 
 % ---- Subsection Threats to Validity ----
 \subsection{Threats to Validity}
 \label{subsec:validity_threats}
+
+As this work is mostly a literature review, the limitations of the results above are mainly dependent on the said literature.\\
+As of today, there is rather little scientific research regarding \ac{fido2} specifically. In fact, most of the citations on \ac{fido2} are either technical documentation (provided by the FIDO Alliance), whitepapers or blog posts by security professionals. Although these sources do not necessarily follow the scientific method, they are still very useful in getting insights into how \ac{fido2} works.\\
+It is for the same reason that only the conceptual security of the whole framework could be evaluated, those concepts however are based on mature and well-tested techniques like public-key cryptography and challenge-response authentication, so the results on these parts is still sound.\\
+The main part of scientific research focuses on the usability or acceptability of the system.
 
 % - Little scientific research to this date
 % - Rather small and either academic or technical participants in the studies
