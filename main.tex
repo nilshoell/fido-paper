@@ -2,12 +2,13 @@
 %	PAPER SETUP
 %----------------------------------------------------------------------------------------
 
-\newcommand*{\mytitle}{Beyond Passwords? Authentication with FIDO2 and WebAuthn} % Paper Title
+\newcommand*{\mytitle}{Beyond Passwords? About the current state of FIDO2 authentication} % Paper Title
 \newcommand*{\myauthor}{Nils Siegle} % Paper Author
 \newcommand*{\mydate}{May 2020} % Publication Date
 \newcommand*{\myuni}{\href{https://www.uni-due.de}{University Duisburg-Essen}} % University
 \newcommand*{\myfac}{\href{https://www.wiwi.uni-due.de}{Faculty of Business Administration and Economics}} % Faculty
 \newcommand*{\myorg}{ACWE} % Organization, Journal, Subject this paper was published in
+\newcommand*{\mysup}{Peter M. Schuler} % Supervisor
 
 
 %----------------------------------------------------------------------------------------
@@ -91,40 +92,6 @@
 % \usepackage[nohyperlinks]{acronym} % Prints only used acronyms in overview
 \usepackage[nohyperlinks, printonlyused]{acronym} % Prints only used acronyms in overview
 
-
-%------------------------------------------------
-%	CODE LISTINGS
-%------------------------------------------------
-\usepackage{listings}
-
-% Load required languages
-\lstloadlanguages{Python}
-
-% Styling
-\lstset{
-  showtabs=false,
-  showspaces=false,
-  showstringspaces=false,
-  basicstyle=\ttfamily,
-  numbers=left, numberstyle=\tiny,
-  columns=fullflexible,
-  frame=single,
-  breaklines=true,
-  % prebreak={\\},
-  backgroundcolor=\color{lstbg},
-  commentstyle=\color{lstComment},
-  stringstyle=\color{lstStr},
-  keywordstyle=\color{lstKey},
-  literate=
-  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
-  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
-  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
-  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
-  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
-  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
-  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {ß}{{\ss}}1
-}
-
 % Better highlighting for inline code
 \newcommand{\linecode}[1]{%
   \colorbox{lstbg}{\textcolor{lstStr}{\textbf{\texttt{#1}}}}%
@@ -148,7 +115,8 @@
 \author{%
   \textsc{Nils Siegle} \\[1ex] % Name
   \normalsize 3087271 \\ % MatriculationNo
-  \normalsize \href{mailto:nils.siegle@stud.uni-due.de}{nils.siegle@stud.uni-due.de} % First author's email address
+  \normalsize \href{mailto:nils.siegle@stud.uni-due.de}{nils.siegle@stud.uni-due.de} \\[2ex]
+  \normalsize \emph{Supervisor:} \mysup
 }
 \date{\today} % Leave empty to omit a date
 \renewcommand{\maketitlehookd}{%
