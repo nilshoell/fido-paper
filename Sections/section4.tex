@@ -59,17 +59,17 @@ In general, public-key infrastructures are considered very robust and mature, al
 To judge the security of the framework criteria are derived from a guide from the \ac{owasp}. The \emph{\ac{owasp} Top 10}\footnote{https://owasp.org/www-project-top-ten/} are a set of ten common security vulnerabilities in web applications based on the number of reported vulnerabilities, user surveys and ranked industry surveys. Although this list is not directly based on scientific research, it is very well known and broadly used, also in other research \cite{rafique2015}.\\
 For this paper the second vulnerability in the top ten is most relevant: \emph{A2 - Broken Authentication}. The following criteria are based on \acp{owasp} guide to detect such vulnerabilities, leaving out session-related issues, as this is out of scope for \ac{fido2} \cite{owasp_auth}.
 
-\noindent\subparagraph{Permits automated attacks such as credential stuffing, where the attacker has a list of valid usernames and passwords.}\\To perform such an attack, an attacker would need the private key of a user, which can never leave the authenticator. As the private key is never stored on any serer, obtaining large amounts of keys is extremely difficult and of nut much use, as different keys are used for each application.
+\noindent\subparagraph{Permits automated attacks such as credential stuffing, where the attacker has a list of valid usernames and passwords.} To perform such an attack, an attacker would need the private key of a user, which can never leave the authenticator. As the private key is never stored on any serer, obtaining large amounts of keys is extremely difficult and of nut much use, as different keys are used for each application.
 
-\noindent\subparagraph{Permits brute force or other automated attacks.}\\Not in the protocol itself, but the use of asymmetric keys for authentication prevents off-line brute force attacks of leaked credentials.
+\noindent\subparagraph{Permits brute force or other automated attacks.} Not in the protocol itself, but the use of asymmetric keys for authentication prevents off-line brute force attacks of leaked credentials.
 
-\noindent\subparagraph{Permits default, weak, or well-known passwords, such as “Password1” or “admin/admin“.}\\Again, the users have no influence on the credentials created, the keys are entirely random.
+\noindent\subparagraph{Permits default, weak, or well-known passwords, such as “Password1” or “admin/admin“.} Again, the users have no influence on the credentials created, the keys are entirely random.
 
-\noindent\subparagraph{Uses weak or ineffective credential recovery and forgot-password processes, such as “knowledge-based answers”, which cannot be made safe.}\\This is mostly dependent on the application itself, implementing weak recovery is still possible with \ac{fido2}.
+\noindent\subparagraph{Uses weak or ineffective credential recovery and forgot-password processes, such as “knowledge-based answers”, which cannot be made safe.} This is mostly dependent on the application itself, implementing weak recovery is still possible with \ac{fido2}.
 
-\noindent\subparagraph{Uses plain text, encrypted, or weakly hashed passwords.}\\The actual credentials (private keys) are not stored on the server, and there is no meaningful way of deriving those from the stored public keys.
+\noindent\subparagraph{Uses plain text, encrypted, or weakly hashed passwords.} The actual credentials (private keys) are not stored on the server, and there is no meaningful way of deriving those from the stored public keys.
 
-\noindent\subparagraph{Has missing or ineffective multi-factor authentication.}\\As said before, \ac{fido2} can be used either as a single or a (strong) second factor. In the end, this is down to the user.
+\noindent\subparagraph{Has missing or ineffective multi-factor authentication.} As said before, \ac{fido2} can be used either as a single or a (strong) second factor. In the end, this is down to the user.
 
 \noindent While the protocols and general authentication flow can be seen as very secure and less prone to various attacks than passwords, another big factor of the general security are the authenticators themselfs. In all cases, it should not be possible to extract the private keys from the authenticator. Additionally, the presence and consent of the user has to be determined for every login, meaning the person has to physically act by pressing a button or accepting a system dialog. This ensures that malicious services cannot trigger and sign assertions without the users knowledge. Many authenticators, like the popular YubiKey 5, also implement another factor like a \ac{pin} or a fingerprint sensor to further protect against theft \cite{yubikey_5_nfc,dunkelberger2018}.
 Further research is needed to make any sound statements on the safety of authenticators, either internal or roaming. There are currently no known side-channel attacks to extract private keys.\\
@@ -82,7 +82,7 @@ Further research is needed to make any sound statements on the safety of authent
 The below comparison of passwords, FIDO2 passwordless login and FIDO U2F is based on the authentication method evaluation framework developed by Bonneau et al \cite{bonneau2012}. The evaluation of simple passwords, also proposed by the former authors and supported by others \cite{lyastani2020} is not changed.\\
 To fill in the gaps for \ac{fido2} we can now make clear statements based on the results above. For the dimension of usability, some of the benefits (\emph{Easy-to-Learn}, \emph{Efficient-to-Use} and \emph{Infrequent-Errors}) can be directly mapped from the categories developed by \cite{nielsen1993} - \ac{fido2} in \ac{1fa} offers all of these benefits, while \ac{2fa} has limited efficiency due to the additional need for passwords. If used for passwordless auth, \ac{fido2} is also memorywise and physically effortless. Again, if used as a second factor those benefits are countered by the additional passphrase. None of the options really scales for many accounts, although federated authentication could be possible. However, this is outside the scope of this paper. As mentioned above, an easy recovery from loss is not possible with \ac{fido2}.
 
-\begin{figure*}[ht]
+\begin{figure*}[!ht]
     \centering
     \includegraphics[width=1.8\columnwidth]{Figures/bonneau_matrix.png}
     \caption[Comparison of Authentication Methods]{Comparison of standard passwords with FIDO 1FA/2FA using a modified version of the framework proposed by Bonneau et al (2012)}
