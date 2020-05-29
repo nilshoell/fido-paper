@@ -3,5 +3,16 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
+\ac{fido2} shows some very good potential to solve many of todays most pressing problems regarding password-based authentication. It is a open framework, based on an open specification by the \ac{w3c}, supported by browser and operating system vendors as well as many application providers. This broad support could, step by step, introduce many people to new concepts of authentication.\\
+But the biggest factor in whether or not \ac{fido2} will actually become successful will remain user acceptance. For now, most of these users have not yet been directly affected by credential leaks, which lowers the perceived necessity for any changes, especially such breaking ones.\\
+Or, as security researcher Troy Hunt put it in an article called "Here's Why [Insert Thing Here] Is Not a Password Killer" \cite{hunt2018a}:
 
-For security-conscious willing to invest some money and time for setting up a fast, secure and easy-to-use authentication method, \ac{fido2} could be a very good alternative to other single- and multi-factor authentication methods.
+\begin{displayquote}
+    Every single solution I've seen that claims to "solve the password problem" just adds another challenge in its place thus introducing a new set of problems.
+\end{displayquote}
+
+\noindent For the start, \ac{fido2} might be a good method for secure authentication in business environments. In such a case, the amount of accounts secured is rather low, while the potential business impact in case of stolen accounts can be exceptionally high. The local IT could coordinate the roll-out and provide support, thus increasing acceptability, as shown by \cite{lang2017}.\\
+\\
+Future research should focus on the long-term usability of the framework, to show if and how fast users get accustomed to the new authentication concepts, how often account recovery actually becomes a problem, and what other challenges may arise in day-to-day use. Additionally, further research is needed regarding the security of both the protocol implementations and the security of roaming (and internal) authenticators.\\
+
+For security-conscious persons willing to invest some money and time for setting up a fast, secure and easy-to-use authentication method, \ac{fido2} could be a very good alternative to other single- and multi-factor authentication methods.
