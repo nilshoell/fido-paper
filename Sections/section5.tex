@@ -4,75 +4,34 @@
 \label{sec:discussion}
 
 As in the previous chapter, the evaluation of the results is also split into the two dimensions usability and security.
-
-% ---- Subsection Usability ----
-\subsection{Usability}
-
-The usability, or more broadly speaking the \emph{acceptability} of a product or service, consists of several components. According to Nielsen (1993), acceptability is split into social and practical acceptability. Due to the lack of literature and practical relevance, only the practical usability of \ac{fido2} is considered in this paper.\\
-Practical acceptability is now split into \emph{cost}, \emph{compatibility}, \emph{reliability} and \emph{usefulness} \cite[25 \psq]{nielsen1993}:
-
-\begin{description}
-    \item[Cost] In the study by \cite{lyastani2020}, around a third of the participants stated that they would rather not use \ac{fido2} due to the cost of external authenticators. This is partly countered by the possible use of internal authenticators (such as a Windows 10 PC or an Android Smartphone), but if a roaming authenticator is required for mobility, prices range between 20€ and 45€ per key \cite{yubikey_5_nfc} - which means at least 40€ if a backup key is registered.
-    \item[Compatibility] As WebAuthn is a browser protocol that is currently implemented in almost every major browser, compatibility should not be an issue. Additionally, it is currently supported in Windows 10 and Android, with full support for Apples iOS on its way \cite{nichols2020}. As \ac{ctap} and WebAuthn are open standards, compatibility should increase in the near future.
-    \item[Reliability] The reliability of a \ac{fido2} authentication is hard to estimate, as many components are required to work. For WebAuthn, the standardisation by the \ac{w3c} should be enough to conclude that it is robust. An unknown factor are hardware keys, as their reliability depends on the manufacturer.
-\end{description}
-
-The usability, according to \cite[25 \psq]{nielsen1993} a sub-component of \emph{Usefulness}, is again divided into five metrics, that are evaluated in the following paragraph:
-
-\begin{description}
-    \item[Easy to learn] The basic usage of the FIDO2 framework is easy to learn, although better and more user-friendly documentation is required as most people are only used to passwords \cite{lyastani2020,hunt2018b,das2018}.
-    \item[Efficient to use] Using a security key is very fast once the users have learned it \cite{lang2017}.
-    \item[Easy to remember] As the process of loggin in itself is quite simple and, contrary to passwords, identical for each application, it should be easy to reproduce. Nevertheless, there is currently no long-term research to further support this evaluation.
-    \item[Few errors] Once setup correctly, there is very little room for errors. However, this also depends on the authenticator used, as for example biometrics could confuse a user and therefore introduce errors \cite{lyastani2020}.
-    \item[Subjectively pleasing] Participants in recent studies have found security keys enjoyable to use in \ac{1fa} scenarios \citep{lyastani2020}, but were less convinced in \ac{2fa} settings \cite{das2018}.
-\end{description}
-
-There is one major challenge that does not really fit in one of the above categories, but was identified by all studies conducted on the use of hardware security keys, no matter if \ac{fido2} and \ac{1fa} or with \ac{u2f}: If the key gets lost, stolen or destroyed, there is currently no easy way to recover access or revoke the key. If the user has no other way of authentication (like a second registered key as proposed by \cite{gomi2019} or a backup password), access for all linked account has to be recovered individually - probably using a multitude of different approaches chosen by each provider. But even with a backup authentication method, the lost key has to be revoked and a new one registered for each service.\\
-
-% ---- Subsection Security ----
-\subsection{Security}
-
-To judge the security of the framework criteria are derived from a guide from the \ac{owasp}. The \emph{\ac{owasp} Top 10}\footnote{https://owasp.org/www-project-top-ten/} are a set of ten common security vulnerabilities in web applications based on the number of reported vulnerabilities, user surveys and ranked industry surveys. Although this list is not directly based on scientific research, it is very well known and broadly used, also in other research \cite{rafique2015}.\\
-For this paper the second vulnerability in the top ten is most relevant: \emph{A2 - Broken Authentication}. The following criteria are based on \acp{owasp} guide to detect such vulnerabilities, leaving out session-related issues, as this is out of scope for \ac{fido2} \cite{owasp_auth}.
-
-\subparagraph{Permits automated attacks such as credential stuffing, where the attacker has a list of valid usernames and passwords.} To perform such an attack, an attacker would need the private key of a user, which can never leave the authenticator. As the private key is never stored on any serer, obtaining large amounts of keys is extremely difficult and of nut much use, as different keys are used for each application.
-
-\subparagraph{Permits brute force or other automated attacks.} Not in the protocol itself, but the use of asymmetric keys for authentication prevents off-line brute force attacks of leaked credentials.
-
-\subparagraph{Permits default, weak, or well-known passwords, such as “Password1” or “admin/admin“.} Again, the users have no influence on the credentials created, the keys are entirely random.
-
-\subparagraph{Uses weak or ineffective credential recovery and forgot-password processes, such as “knowledge-based answers”, which cannot be made safe.} This is mostly dependent on the application itself, implementing weak recovery is still possible with \ac{fido2}.
-
-\subparagraph{Uses plain text, encrypted, or weakly hashed passwords.} The actual credentials (private keys) are not stored on the server, and there is no meaningful way of deriving those from the stored public keys.
-
-\subparagraph{Has missing or ineffective multi-factor authentication.} As said before, \ac{fido2} can be used either as a single or a (strong) second factor. In the end, this is down to the user.
-
-% \begin{description}
-%     \item[Permits automated attacks such as credential stuffing, where the attacker has a list of valid usernames and passwords.] To perform such an attack, an attacker would need the private key of a user, which can never leave the authenticator. As the private key is never stored on any serer, obtaining large amounts of keys is extremely difficult and of nut much use, as different keys are used for each application.
-%     \item[Permits brute force or other automated attacks.] Not in the protocol itself, but the use of asymmetric keys for authentication prevents off-line brute force attacks of leaked credentials.
-%     \item[Permits default, weak, or well-known passwords, such as “Password1” or “admin/admin“.] Again, the users have no influence on the credentials created, the keys are entirely random.
-%     \item[Uses weak or ineffective credential recovery and forgot-password processes, such as “knowledge-based answers”, which cannot be made safe.] This is mostly dependent on the application itself, implementing weak recovery is still possible with \ac{fido2}.
-%     \item[Uses plain text, encrypted, or weakly hashed passwords.] The actual credentials (private keys) are not stored on the server, and there is no meaningful way of deriving those from the stored public keys.
-%     \item[Has missing or ineffective multi-factor authentication.] As said before, \ac{fido2} can be used either as a single or a (strong) second factor. In the end, this is down to the user.
-% \end{description}
-
-In addition to those purely application-side criteria, using \ac{fido2} should also be evaluated using rather social aspects.\\
-The protocol is resistant to phishing as shown in section \ref{subsec:security}.
-% - no observation of credential, but maybe PIN
-% - Some resilience to theft
-
-Further research is needed to make any sound statements on the safety of authenticators, either internal or roaming. There are currently no known side-channel attacks to extract private keys.\\
+Looking at the results, the research question probably has to be answered with \emph{Yes, but\dots}.\\
+In general, \ac{fido2} can indeed provide secure and easy-to-use authentication. In fact, the comparison in figure \ref{fig:bonneau_matrix} shows that it is significantly more secure than using passwords. From a usability point of view passwords seem to be better in two, but worse in three categories. Especially the memory effort is a key factor in why passwords tend to be insecure, because users can't memorize too many different ones \cite{lyastani2018,elhai2016,whitty2015}.\\
 \\
-Nonetheless, it can be concluded that using \ac{fido2} in any configuration is significantly more secure than using passwords.
+The results also clearly show that the FIDO Alliance has to provide better answers to the problem of account recovery than to recommend using a second key for each site. Having a standardized process or even a way of revoking the lost key from all accounts at once would probably have a huge impact on usability and therefore acceptance.\\
+Some other challenges rely heavily on the relying party and how they implement the application. As shown by \cite{das2018}, having clear and easy to understand instructions could drastically decrease the complexity of the setup. Account delegation might also be possible by using additional, password-like authentication tokens. Such tokens could be randomly generated by the main user inside the application, and then distributed like regular passwords. Although this would increase the attack surface and re-introduce security problems of passwords, the risk could be minimized by limiting the token to either a time frame (e.g. valid for 24h) or a number of logins allowed.\\
+What remains is mainly the issue of having to carry around a physical device. With support of \ac{fido2} in Android and soon iOS, using a smartphone as an authenticator reduces that problem, as many people already carry their phone at all times. This, however, would decrease the compatibility, as the phone would require a connection using Bluetooth or \ac{nfc} due to the lack of a standrad USB-A port.
 
 % ---- Subsection Threats to Validity ----
 \subsection{Threats to Validity}
 \label{subsec:validity_threats}
 
-As this work is mostly a literature review, the limitations of the results above are mainly dependent on the said literature.\\
-As of today, there is rather little scientific research regarding \ac{fido2} specifically. In fact, most of the citations on \ac{fido2} are either technical documentation (provided by the FIDO Alliance), whitepapers or blog posts by security professionals. Although these sources do not necessarily follow the scientific method, they are still very useful in getting insights into how \ac{fido2} works.\\
+As this work is mostly a literature review, the limitations of the results above are mainly dependent on said literature.\\
+
+As seen in table \ref{tab:literature_review}, the first phase returned most of the FIDO2 sources. This is due to the fact that these are mostly media outlets like technical blogs \citep{hunt2018b,leitner2019, chonng2018, ng2019, mingis2020} or from the official FIDO Alliance website \citep{fido2_overview,fido2_webauthn}.
+
+\begin{table}[ht]
+    \centering
+    \caption{Overview of literature used in this paper.}
+    \label{tab:literature_review}
+    \begin{tabular}{ l | c | c }
+        \textbf{Phase} & \textbf{Foundations} & \textbf{FIDO Framework}\\
+        \hline
+        Phase 1 & 5 & 7\\
+        Phase 2 & 6 & 6\\
+        Phase 3 & 4 & 2\\
+    \end{tabular}
+\end{table}
+
+\noindent As of today, there is rather little scientific research regarding \ac{fido2} specifically. In fact, most of the citations on \ac{fido2} are either technical documentation (provided by the FIDO Alliance), whitepapers or blog posts by security professionals. Although these sources do not necessarily follow the scientific method, they are still very useful in getting insights into how \ac{fido2} works.\\
 It is for the same reason that only the conceptual security of the whole framework could be evaluated, those concepts however are based on mature and well-tested techniques like public-key cryptography and challenge-response authentication, so the results on these parts is still sound.\\
 The main part of scientific research focuses on the usability or acceptability of the system.
-
-% - Little scientific research to this date
-% - Rather small and either academic or technical participants in the studies
