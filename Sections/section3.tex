@@ -11,7 +11,7 @@ The following chapter explains some basic concepts of web authentication, digita
 
 \ac{authn} and \ac{authz} are concepts present in virtually every protected \ac{it} ressource.
 The former describes the process of identifying a user by verifying their digital identity, hence checking their \emph{authenticity}. Oftentimes only certain users are \emph{authorized} to access a protected ressource (e.g. specific parts of a website, sensitive data etc.). Therefore, an authorization has to take place both to ensure that the correct information is distributed to each user, and that no one without permission is able to manipulate data.\\
-The most common and widespread type of web authentication is the so-called password-based authentication. In this case a user has to provide a \emph{username} and a \emph{password} or \emph{passphrase}, a secret string only known to the user.\\
+The most common and widespread type of web authentication is the so-called password-based authentication. In this case a user has to provide a \emph{username} and a \emph{password} or \emph{passphrase}, a secret string only known to the user.
 Only the correct combination of username and password grants access to the protected resource.\\
 \\
 In the above case the password is also referred to as an \emph{authentication factor}, of which there are three categories \cite{turner2016}:
@@ -19,10 +19,10 @@ In the above case the password is also referred to as an \emph{authentication fa
 \begin{description}
     \item[Knowledge factors] Something (only) the user knows like a password/-phrase or a \ac{pin}
     \item[Ownership factors] Something the user owns like a smart card or a \ac{totp} token
-    \item[Inherence factors] Mostly biometric factors like fingerprints
+    \item[Inherence factors] Mostly biometric factors like fingerprints or facial recognition
 \end{description}
 
-This classification allows for a basic evaluation of possible \ac{authn} factors: While inherence factors are almost always available (the user carries them around), they often require special hardware like fingerprint sensors and are therefore not best suited for web authentication.\\
+\noindent This classification allows for a basic evaluation of possible \ac{authn} factors: While inherence factors are almost always available (the user carries them around), they often require special hardware like fingerprint sensors and are therefore not best suited for web authentication.\\
 Ownership factors on the other hand are less resilient against (physical) theft - if the smartphone or hardware token is stolen, an attacker could successfully authenticate.\\
 The security of passwords and other knowledge factors is dependent on the users and how they store and generate them. Reusing passwords or using obvious, common or dictionary-based strings is undeniably less secure than using long, randomly generated ones stored in a password manager \cite{lyastani2018,hunt2011,hunt2018c}. Therefore, application developers have little influence on the security of possibly very important accounts, and if they try to enforce strong passwords by using arbitrary requirements, this can easily backfire \cite{hunt2017} and just decrease usability instead of increasing security. For that reason, the \ac{nist} has dropped all recommendations to use password complexity requirements and instead suggests to rely on length and black lists of known (and therefore insecure) passwords \cite{nist}.
 
@@ -42,19 +42,20 @@ However, \ac{mfa} is not a reliable protection against phishing attacks \cite{ly
 \subsection{FIDO2 Overview}
 \label{subsec:fido2_webauthn}
 
-The \ac{fido} Alliance was founded in 2012 by a consortium of software and hardware companies with the goal to create an open, universal authentication framework. In December of 2014 the specifications for \acl{uaf}, a protocol for passwordless authentication, and \acl{u2f}, a protocol designed for second factors, were published by the alliance. The experiences from those protocols were later condensed into the \ac{fido2} framework, launched only recently in April of 2018 \cite{fido_history}.\\
+The \ac{fido} Alliance was founded in 2012 by a consortium of software and hardware companies with the goal to create an open, universal authentication framework. In December of 2014 the specifications for the \acl{uaf}, a protocol for passwordless authentication, and \acl{u2f}, a protocol designed for hardware key based second factors, were published by the alliance. The experiences from those protocols were later condensed into the \ac{fido2} framework, launched only recently in April of 2018 \cite{fido_history}.\\
 \\
 \ac{fido2} aims to provide a strong authentication factor (either as single factor for passwordless login or in a \ac{mfa} setting) using hardware keys, so called \emph{authenticators}. Those can be on the device itself (for example using \emph{Windows Hello}, Apples \emph{TouchID} or a \ac{tpm} chip), and therefore \emph{internal} authenticators. The alternative are external or \emph{roaming} authenticators, often realised as USB keys or \ac{nfc} cards.\\
 The party providing the protected ressource (e.g. a website or other web application) is referred to as \emph{relying party}.\\
 The \ac{fido2} Framework consists mainly of two components: The \emph{WebAuthn} web \ac{api}, standardized by the \ac{w3c}, is the interface between the browser or application and the authentication servers of the relying party \cite{webauthn_standard}. WebAuthn is currently supported by the Windows 10 and Android \acp{os} as well as by the Google Chrome, Mozilla Firefox, Microsoft Edge and Apple Safari web browsers \cite{fido2_webauthn}.\\
-The second part is the \ac{ctap2} protocol that is responsible for connecting roaming authenticators to the clients device (e.g. a smartphone, laptop or personal computer) \cite{fido2_overview,fido2_ctap}.\\
+The second part is the \ac{ctap2}\footnote{In this paper the acronyms CTAP and CTAP2 are used synonymously. This is due to the fact that CTAP was later re-branded as CTAP2, while U2F became CTAP1.} that is responsible for connecting roaming authenticators to the clients device (e.g. a smartphone, laptop or personal computer) \cite{fido2_overview,fido2_ctap}.\\
 
-\begin{figure*}[!ht]
+\begin{figure*}[!h]
     \centering
     \includegraphics[width=1.8\columnwidth]{Figures/fido2_webauth_ctap_flow.png}
     \caption[FIDO2 Authentication Flow]{FIDO2 WebAuthn \& CTAP2 Authentication Flow}
     \label{fig:fido2_webauth_ctap_flow}
 \end{figure*}
 
-\noindent As seen in figure \ref{fig:fido2_webauth_ctap_flow}, the \ac{rp} will never know what kind of authenticator was used - as long as it can communicate over WebAuthn (or indirectly over \ac{ctap}).\\
-The WebAuthn \ac{api} is used for two major operations: Either to register a new authenticator with an application, creating new public key credentials, or to login to one of these applications. For logging in, the \ac{rp} sends an \emph{authentication assertion}. The authenticator has to verify the presence and consent of the user, usually using a button or fingerprint sensor on the security key, before the assertion is signed with the correct private key and send back to the \ac{rp} \cite{webauthn_standard,mdn_webauthn}.
+\noindent As seen in figure \ref{fig:fido2_webauth_ctap_flow}, the \ac{rp} will never know what kind of authenticator was used - as long as it can communicate over WebAuthn (or indirectly over \ac{ctap2}).\\
+The WebAuthn \ac{api} is used for two major operations: Either to register a new authenticator with an application, creating new public key credentials, or to login to one of these services. For logging in, the \ac{rp} sends an \emph{authentication assertion}. The authenticator has to verify the presence and consent of the user, usually using a button or fingerprint sensor on the security key, before the assertion is signed with the correct private key and send back to the \ac{rp}.\\
+The \ac{rp} can now check the cryptographic signature on the assertion, verifying the authenticity of the user trying to log in \cite{webauthn_standard,mdn_webauthn}.
