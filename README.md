@@ -1,26 +1,19 @@
-# fido-paper
-Term Paper about FIDO2
+# Beyond Passwords? About The Current State of FIDO2 Authentication
+A research paper by Nils Höll, written for the course "Applied Concepts of Web Engineering" at the University of Duisburg-Essen.
+## Abstract
 
-## Protocols
+Passwords are insecure and annoying to use, especially if one tries to use them in a secure way. We know the
+problems regarding this form of authentication, there are dozens of studies and articles about why passwords
+should not be used anymore, how they can be made more secure, and why people still reuse already weak
+credentials despite better knowledge.  
+Those ﬁndings and their conclusions - that we need better forms of authentication for web applications - are
+supported by the almost regular credential leaks from companies in all branches, collected by sites like [Have I Been Pwned](https://haveibeenpwned.com/) or the [Hasso-Plattner-Institut Identity Leak Checker](https://sec.hpi.de/ilc/search).  
+One of the many proposals on how to tackle this problem comes from the Fast IDentity Online (FIDO)
+Alliance. Their new authentication framework, Fast IDentity Online 2 (FIDO2), promises an open standard
+for secure and easy to use web authentication.
 
-- FIDO 2
-  - FIDO U2F
-  - FIDO UAF
-  - CTAP
-  - WebAuthn
+This paper analyzes the current body of knowledge regarding the security and usability of FIDO2
+and tries to draw a conclusion whether or not it could replace legacy passwords in the future.
 
-## Links
-
-- [FIDO Whitepapers](https://fidoalliance.org/content/white-paper/)
-  - [FIDO2 Explained](https://fidoalliance.org/15822/)
-  - [Technical Principles of FIDO Authentication](https://fidoalliance.org/technical-principles-of-fido-authentication/)
-- [FIDO2 Fefe](https://blog.fefe.de/?ts=a3695c14)
-- Papers FIDO
-  - [FIDO2 Biometrics](https://www.sciencedirect.com/science/article/abs/pii/S0969476518301267)
-  - 
-- Papers Passwords
-  - [Assessing website password practices – over a decade of progress?](https://www.sciencedirect.com/science/article/abs/pii/S1361372318300630)
-  - [Graphical Passwords](https://www.sciencedirect.com/science/article/abs/pii/S0167739X19302882)
-  - [PW Policy Neutralization Techniques](https://www.sciencedirect.com/science/article/pii/S0167404819301646)
-  - [PW Memorability](https://www.sciencedirect.com/science/article/abs/pii/S2214212618306562)
-  - [PW Behaviour](https://www.sciencedirect.com/science/article/abs/pii/S2214212618305027)
+## Research Paper
+To read the full paper please refer to the PDF document [hoell2020_fido2-auth](hoell2020_fido2-auth.pdf).
